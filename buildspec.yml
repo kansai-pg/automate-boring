@@ -1,0 +1,11 @@
+version: 0.1
+
+phases:
+  build:
+    commands:
+      - docker build -t 267187104952.dkr.ecr.ap-northeast-1.amazonaws.com/selenium:latest .
+  post_build:
+    commands:
+      - aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin 267187104952.dkr.ecr.ap-northeast-1.amazonaws.com
+      - docker push 267187104952.dkr.ecr.ap-northeast-1.amazonaws.com/selenium:latest
+      - aws lambda update-function-code --function-name get-cost --image-uri 267187104952.dkr.ecr.ap-northeast-1.amazonaws.com/selenium:latest
