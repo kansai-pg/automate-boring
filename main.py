@@ -20,9 +20,9 @@ def handler(event=None, context=None):
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--disable-dev-tools")
     options.add_argument("--no-zygote")
-    options.add_argument(f"--user-data-dir={mkdtemp()}")
-    options.add_argument(f"--data-path={mkdtemp()}")
-    options.add_argument(f"--disk-cache-dir={mkdtemp()}")
+#     options.add_argument(f"--user-data-dir={mkdtemp()}")
+#     options.add_argument(f"--data-path={mkdtemp()}")
+#     options.add_argument(f"--disk-cache-dir={mkdtemp()}")
     options.add_argument("--remote-debugging-port=9222")
     options.binary_location = "./chrome-linux/chrome"
 
